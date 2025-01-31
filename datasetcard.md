@@ -1,90 +1,100 @@
----
 # Dataset Card
+
 ---
 
-# Dataset Card for {{ pretty_name | default("Dataset Name", true) }}
+## Dataset Card for Automatic Pothole Detection System
 
-<!-- Provide a quick summary of the dataset. -->
+### Dataset Summary
 
-{{ dataset_summary | default("", true) }}
+A curated dataset of real-world road images containing potholes, designed for training object detection models to assist in automated road maintenance and safety management. The project aligns with UN SDGs:
+- **3.6**: By 2030, halve the number of global deaths and injuries from road traffic accidents.
+- **9.1**: Develop quality, reliable, sustainable, and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being.
+- **11.2**: By 2030, provide access to safe, affordable, accessible, and sustainable transport systems for all, improving road safety.
 
 ## Dataset Details
 
 ### Dataset Description
 
-<!-- Provide a longer summary of what this dataset is. -->
+The aim of this dataset is to support the development of an automated pothole detection system leveraging object detection techniques and real-world data. The dataset is created to:
+- Assist authorities in prioritizing road maintenance.
+- Reduce accidents.
+- Improve urban infrastructure management.
 
-{{ dataset_description | default("", true) }}
+- **Curated by:** [More Information Needed]
+- **License:** [More Information Needed]
 
-- **Curated by:** {{ curators | default("[More Information Needed]", true)}}
-- **License:** {{ license | default("[More Information Needed]", true)}}
+### Dataset Sources
 
-### Dataset Sources [optional]
-
-<!-- Provide the basic links for the dataset. -->
-
-- **Repository:** {{ repo | default("[More Information Needed]", true)}}
-- **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
-- **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
+- **Repository:** [More Information Needed]
+- **Paper (optional):** [More Information Needed]
+- **Demo (optional):** [More Information Needed]
 
 ## Uses
 
-<!-- Address questions around how the dataset is intended to be used. -->
-
 ### Direct Use
 
-<!-- This section describes suitable use cases for the dataset. -->
-
-{{ direct_use | default("[More Information Needed]", true)}}
-
+This dataset is designed for:
+- Training and evaluating object detection models for pothole detection.
+- Benchmarking different object detection architectures.
+- Testing real-world deployment of pothole detection systems.
 
 ## Dataset Structure
 
-<!-- This section provides a description of the dataset fields, and additional information about the dataset structure such as criteria used to create the splits, relationships between data points, etc. -->
-
-{{ dataset_structure | default("[More Information Needed]", true)}}
+- **Data Type:** Custom real-world road imagery dataset collected via web scraping, filtered to exclude synthetic and animated images.
+- **Sources:**
+  - Flickr API
+  - DuckDuckGo API
+  - Bing API
+  - Some pre-cleaned Roboflow datasets (for dummy model creation)
 
 ## Dataset Creation
 
 ### Source Data
 
-<!-- This section describes the source data (e.g. news text and headlines, social media posts, translated sentences, ...). -->
-
 #### Data Collection and Processing
 
-<!-- This section describes the data collection and processing process such as data selection criteria, filtering and normalization methods, tools and libraries used, etc. -->
+- Data was collected from real-world sources using API-based web scraping.
+- Synthetic and animated images were excluded.
+- Dataset was processed to ensure high-quality and diverse pothole images.
+- Additional cleaning and augmentation techniques were applied.
 
-{{ data_collection_and_processing_section | default("[More Information Needed]", true)}}
+#### Features and the Target
 
-#### Features and the target
+- **Features:** Real-world road images containing potholes.
+- **Target:** Binary classification (pothole or no pothole) or object detection (bounding box around potholes).
 
-<!-- This section describes the features of the dataset and the target of the project -->
+### Annotations
 
-### Annotations [optional]
+#### Annotation Process
 
-<!-- If the dataset contains annotations which are not part of the initial data collection, use this section to describe them. -->
+- Manual annotation of pothole locations in images.
+- Bounding boxes and labels assigned for training object detection models.
+- Annotation quality control ensured via multiple passes.
 
-#### Annotation process
+#### Who are the Annotators?
 
-<!-- This section describes the annotation process such as annotation tools used in the process, the amount of data annotated, annotation guidelines provided to the annotators, interannotator statistics, annotation validation, etc. -->
-
-{{ annotation_process_section | default("[More Information Needed]", true)}}
-
-#### Who are the annotators?
-
-<!-- This section describes the people or systems who created the annotations. -->
-
-{{ who_are_annotators_section | default("[More Information Needed]", true)}}
-
+- [More Information Needed]
 
 ## Bias, Risks, and Limitations
 
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
+- The dataset may be biased towards urban roads with higher pothole occurrences.
+- Variation in lighting, weather, and road conditions may affect model generalization.
+- Ethical considerations must be taken into account when deploying automated road assessment tools.
 
-{{ bias_risks_limitations | default("[More Information Needed]", true)}}
+## Citation (optional)
 
+- If a paper or blog post introducing the dataset is available, APA and BibTeX citations should be included here.
 
-## Citation [optional]
+## Work Completed Prior to the Last Meeting
 
-<!-- If there is a paper or blog post introducing the dataset, the APA and Bibtex information for that should go in this section. -->
+- Roboflow data was collected and used to train a dummy model.
+- Data from APIs was clustered using PCA and K-Means.
+- The dummy model was tested with clustered data but failed to detect certain potholes.
+- Missed detections were manually labeled and then augmented using various data augmentation techniques.
+- Augmented data was further trained and evaluated against previous best models.
+- Different augmentation techniques were applied to increase dataset diversity.
+- The dataset was expanded and retrained with different methods to improve model performance.
+- Augmented data and clustering results were visualized.
+- The current dataset does not frequently encounter similar cases.
+- All related work and visuals have been uploaded to GitHub.
 
