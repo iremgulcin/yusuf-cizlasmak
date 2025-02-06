@@ -16,7 +16,6 @@ class DataAugmentation:
             'flip': 'flip',
             'brightness': 'brightness',
             'noise': 'noise',
-            'zoom': 'zoom',
             'blur': 'blur'
         }
         
@@ -59,21 +58,6 @@ class DataAugmentation:
         noisy = image + gauss
         return np.clip(noisy, 0, 255).astype(np.uint8)
     
-    def apply_zoom(self, image, zoom_factor):
-        """Yakınlaştır ve kırp"""
-        height, width = image.shape[:2]
-        center_x, center_y = width//2, height//2
-        
-        crop_width = int(width/zoom_factor)
-        crop_height = int(height/zoom_factor)
-        
-        x1 = center_x - crop_width//2
-        y1 = center_y - crop_height//2
-        x2 = x1 + crop_width
-        y2 = y1 + crop_height
-        
-        cropped = image[y1:y2, x1:x2]
-        return cv2.resize(cropped, (width, height))
     
     def apply_blur(self, image, kernel_size=(5,5)):
         """Gaussian bulanıklaştırma uygula"""
@@ -91,7 +75,6 @@ class DataAugmentation:
             'flip': self.apply_flip(image.copy(), 1),  # yatay çevirme
             'brightness': self.apply_brightness(image.copy(), 1.3),
             'noise': self.apply_noise(image.copy()),
-            'zoom': self.apply_zoom(image.copy(), 1.2),
             'blur': self.apply_blur(image.copy(), (5,5))
         }
         
@@ -113,7 +96,6 @@ class DataAugmentation:
             ('Horizontal Flip', 'flip'),
             ('Brightness +30%', 'brightness'),
             ('Noise', 'noise'),
-            ('Zoom 120%', 'zoom'),
             ('Blur 5x5', 'blur'),
         ]
         
