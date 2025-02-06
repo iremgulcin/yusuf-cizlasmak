@@ -16,3 +16,13 @@ Görüntülerini indirme
     * Kümeleme yapılan görüntülerin hızlı bir şekilde ayrılıştırması ve ayrıştırılan görüntülerin modelin tahminine tabii tutulup, göremediklerinin etiketlenip tekrardan eğitilmesi( ACTIVATE LEARNING)
 
     * Her aşamada modellerin belirli bir val. setiyle karşılaştırılması* (Gerçek veri seti)    
+
+
+    Yeni güncelleme: 06/02
+
+    * ModelCard 
+
+    * Modeller eğitildi, artık deploy edilmeye hazır gözüküyor. Gradio ile arayüz tasarlanıp
+
+
+    * Ardından Dockerize edilebilir.

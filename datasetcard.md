@@ -85,16 +85,5 @@ This dataset is designed for:
 
 - If a paper or blog post introducing the dataset is available, APA and BibTeX citations should be included here.
 
-## Work Completed Prior to the Last Meeting
 
-- Roboflow data was collected and used to train a dummy model.
-- Data from APIs was clustered using PCA and K-Means.
-- The dummy model was tested with clustered data but failed to detect certain potholes.
-- Missed detections were manually labeled and then augmented using various data augmentation techniques.
-- Augmented data was further trained and evaluated against previous best models.
-- Different augmentation techniques were applied to increase dataset diversity.
-- The dataset was expanded and retrained with different methods to improve model performance.
-- Augmented data and clustering results were visualized.
-- The current dataset does not frequently encounter similar cases.
-- All related work and visuals have been uploaded to GitHub.
 
