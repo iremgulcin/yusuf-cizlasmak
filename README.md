@@ -10,12 +10,12 @@ Görüntülerini indirme
 
 - İndirilen görüntülerin;
     
-    * Embeddings'lerini çıkartma
-    * PCA ile Boyut azaltımı sağlama
-    * Azaltılan PCA boyutları ile K-Means algoritmalarıyla kümeleme yapılması
-    * Kümeleme yapılan görüntülerin hızlı bir şekilde ayrılıştırması ve ayrıştırılan görüntülerin modelin tahminine tabii tutulup, göremediklerinin etiketlenip tekrardan eğitilmesi( ACTIVATE LEARNING)
+    * Embeddings'lerini çıkartma ✅
+    * PCA ile Boyut azaltımı sağlama ✅
+    * Azaltılan PCA boyutları ile K-Means algoritmalarıyla kümeleme yapılması ✅
+    * Kümeleme yapılan görüntülerin hızlı bir şekilde ayrılıştırması ve ayrıştırılan görüntülerin modelin tahminine tabii  tutulup, göremediklerinin etiketlenip tekrardan eğitilmesi( ACTIVATE LEARNING) ✅
 
-    * Her aşamada modellerin belirli bir val. setiyle karşılaştırılması* (Gerçek veri seti)    
+    * Her aşamada modellerin belirli bir val. setiyle karşılaştırılması* (Gerçek veri seti)   ✅
 
 
     Yeni güncelleme: 06/02
