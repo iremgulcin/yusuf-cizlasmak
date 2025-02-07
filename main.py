@@ -19,7 +19,7 @@ def yolo_predict(image, conf, model_path='medium_model.pt'):
             "yolo",
             "task=detect",
             "mode=predict",
-            f"conf={conf}",
+            f"conf=0.20",
             "save=True",
             f"model={model_path}",
             f"source={input_image_path}",
@@ -57,9 +57,10 @@ interface = gr.Interface(
     fn=yolo_predict,
     inputs=[
         gr.Image(type="pil", label="Resim Yükle")
+
     ],
     outputs=gr.Image(type="pil", label="Sonuç"),
-    title="YOLO Nesne Tespiti"
+    title="SAMSUNG INNOVATION CAMPUS AI PROJECT - YUSUF CIZLAŞMAK - POTHOLE DETECTION",
 )
 
 if __name__ == "__main__":
