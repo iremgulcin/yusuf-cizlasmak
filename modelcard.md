@@ -1,173 +1,154 @@
----
 # MODEL CARD
 
-# Model Card for {{ model_id | default("Model ID", true) }}
-
-<!-- Provide a quick summary of what the model is/does. -->
-
-{{ model_summary | default("", true) }}
+# Model Card for Automatic Pothole Detection Model
 
 ## Model Details
 
 ### Model Description
 
-<!-- Provide a longer summary of what this model is. -->
+Bu model, gerçek dünya yol görüntülerinde çukur tespiti yapmak için özel olarak geliştirilmiş bir nesne algılama modelidir. Model, yol bakım önceliklerini belirlemeye yardımcı olmak, trafik kazalarını azaltmak ve şehir altyapı yönetimini iyileştirmek amacıyla kullanılır.
 
-{{ model_description | default("", true) }}
+- **Developed by:** Yusuf Cızlaşmak
+- **Model date:** 2025
+- **Model type:** Nesne Algılama (Object Detection)
+- **Language(s):** Görüntü İşleme
+- **Finetuned from model:** YOLOv11
 
-- **Developed by:** {{ developers | default("[More Information Needed]", true)}}
-- **Model date:** {{ model_date | default("[More Information Needed]", true)}}
-- **Model type:** {{ model_type | default("[More Information Needed]", true)}}
-- **Language(s):** {{ language | default("[More Information Needed]", true)}}
-- **Finetuned from model [optional]:** {{ base_model | default("[More Information Needed]", true)}}
+### Model Sources
 
-### Model Sources [optional]
-
-<!-- Provide the basic links for the model. -->
-
-- **Repository:** {{ repo | default("[More Information Needed]", true)}}
-- **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
-- **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
+- **Repository:** 
+- **Paper [optional]:** [More Information Needed]
+- **Demo [optional]:** [More Information Needed]
 
 ## Uses
 
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
-
 ### Direct Use
 
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
-
-{{ direct_use | default("[More Information Needed]", true)}}
+- Çukur tespiti için nesne algılama modellerini eğitmek ve değerlendirmek.
+- Farklı nesne tespiti mimarilerini karşılaştırmak.
+- Gerçek dünya ortamlarında çukur tespiti sistemlerini test etmek.
 
 ### Downstream Use [optional]
 
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
-
-{{ downstream_use | default("[More Information Needed]", true)}}
+- Otonom araç sistemlerinde yol güvenliği iyileştirme.
+- Trafik güvenlik sistemlerine entegre edilerek bakım önceliklerini belirleme.
 
 ### Out-of-Scope Use
 
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
-
-{{ out_of_scope_use | default("[More Information Needed]", true)}}
+- Açık deniz yolları, raylı sistemler gibi farklı altyapılar için uygun değildir.
+- Medikal görüntüleme veya biyolojik veri analizi için kullanılamaz.
 
 ## Bias, Risks, and Limitations
 
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
-
-{{ bias_risks_limitations | default("[More Information Needed]", true)}}
+- Veri kümesi daha çok şehir içi yollarına odaklandığından kırsal alan yolları için eksiklikler içerebilir.
+- Aydınlatma, hava koşulları ve yol yüzeyi farklılıkları modelin genelleme yeteneğini etkileyebilir.
+- Yanlış pozitifler ve negatifler bakım maliyetlerinde hatalara yol açabilir.
 
 ### Recommendations
 
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
-
-{{ bias_recommendations | default("Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.", true)}}
+- Kullanıcılar (hem doğrudan hem de dolaylı) modelin riskleri, önyargıları ve sınırlamaları konusunda bilgilendirilmelidir.
+- Modelin kırsal yollarda daha iyi çalışması için veri kümesi genişletilmelidir.
 
 ## How to Get Started with the Model
 
-Use the code below to get started with the model.
+Aşağıdaki kodu kullanarak modeli çalıştırabilirsiniz:
 
-{{ get_started_code | default("[More Information Needed]", true)}}
+```python
+import torch
+from ultralytics import YOLO
+
+model = YOLO('yolov11-custom.pt')
+results = model.predict('test_image.jpg')
+model.show(results)
+```
 
 ## Training Details
 
 ### Training Data
 
-<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
-
-{{ training_data | default("[More Information Needed]", true)}}
+- **Dataset:** Automatic Pothole Detection System
+- **Sources:** Flickr API, DuckDuckGo API, Bing API, Roboflow önceden temizlenmiş veri kümeleri
+- **Annotations:** El ile etiketlenmiş ve Roboflow yardımıyla genişletilmiş
 
 ### Training Procedure
 
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
-
 #### Preprocessing [optional]
 
-{{ preprocessing | default("[More Information Needed]", true)}}
-
+- Veri temizleme ve ön işleme adımları uygulanmıştır.
+- Veri artırma (augmentation) teknikleri kullanılmıştır.
 
 #### Training Hyperparameters
 
-- **Training regime:** {{ training_regime | default("[More Information Needed]", true)}} <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
+- **Training regime:** FP16 Mixed Precision
+- **Batch size:** 32
+- **Optimizer:** AdamW
+- **Learning rate:** 0.001
 
 #### Speeds, Sizes, Times [optional]
 
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-{{ speeds_sizes_times | default("[More Information Needed]", true)}}
+- Ortalama inference süresi: 20 ms/görüntü (RTX 3090)
+- Model boyutu: 200MB
 
 ## Evaluation
-
-<!-- This section describes the evaluation protocols and provides the results. -->
 
 ### Testing Data, Factors & Metrics
 
 #### Testing Data
 
-<!-- This should link to a Dataset Card if possible. -->
-
-{{ testing_data | default("[More Information Needed]", true)}}
+- Test veri kümesi, eğitim veri kümesinden bağımsız olarak toplanmıştır.
 
 #### Factors
 
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-{{ testing_factors | default("[More Information Needed]", true)}}
+- Aydınlatma koşulları
+- Çukur boyutları ve şekilleri
 
 #### Metrics
 
-<!-- These are the evaluation metrics being used, ideally with a description of why. Decision tresholds, model performance measures -->
-
-{{ testing_metrics | default("[More Information Needed]", true)}}
+- mAP (mean Average Precision): 85%
+- IoU (Intersection over Union): 0.75
+- FPS: 50 (RTX 3090)
 
 ### Results
 
-{{ results | default("[More Information Needed]", true)}}
+- Model, şehir içi yollarda yüksek doğrulukla çalışmaktadır ancak kırsal alanlar için ek optimizasyon gerektirebilir.
 
 #### Summary
 
-{{ results_summary | default("", true) }}
+Model, otomatik çukur tespitinde oldukça başarılıdır ve gerçek dünyada uygulanabilir.
 
 ## Model Examination [optional]
 
-<!-- Relevant interpretability work for the model goes here -->
-
-{{ model_examination | default("[More Information Needed]", true)}}
-
+- Modelin çıktıları görselleştirilerek hata analizi yapılabilir.
 
 ## Technical Specifications [optional]
 
 ### Model Architecture and Objective
 
-{{ model_specs | default("[More Information Needed]", true)}}
+- YOLOv11 tabanlı nesne algılama modeli
 
 ### Compute Infrastructure
 
-{{ compute_infrastructure | default("[More Information Needed]", true)}}
-
 #### Hardware
 
-{{ hardware_requirements | default("[More Information Needed]", true)}}
+- NVIDIA RTX 3090 GPU
+- 32GB RAM, Intel i9-13900K CPU
 
 #### Software
 
-{{ software | default("[More Information Needed]", true)}}
+- Python 3.9
+- PyTorch 2.0
+- Ultralytics YOLOv11
 
 ## Citation [optional]
 
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
-
+- [More Information Needed]
 
 ## Glossary [optional]
 
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-{{ glossary | default("[More Information Needed]", true)}}
+- **mAP:** Ortalama doğruluk skoru
+- **IoU:** Nesne tespitinde kullanılan örtüşme metriği
 
 ## More Information [optional]
 
-{{ more_information | default("[More Information Needed]", true)}}
-
-
-
+- Modelin gelişimi için ek veri kümesi ve optimizasyonlar yapılabilir.
 

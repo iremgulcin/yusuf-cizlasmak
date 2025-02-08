@@ -6,26 +6,28 @@
 
 ### Dataset Summary
 
-A curated dataset of real-world road images containing potholes, designed for training object detection models to assist in automated road maintenance and safety management. The project aligns with UN SDGs:
-- **3.6**: By 2030, halve the number of global deaths and injuries from road traffic accidents.
-- **9.1**: Develop quality, reliable, sustainable, and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being.
-- **11.2**: By 2030, provide access to safe, affordable, accessible, and sustainable transport systems for all, improving road safety.
+Gerçek dünya yol görüntülerinden oluşan, çukur tespiti için nesne algılama modellerini eğitmeye yönelik özel bir veri kümesi. Otomatik yol bakım sistemleri ve güvenlik yönetimi için geliştirilmiştir. Bu proje, aşağıdaki Birleşmiş Milletler Sürdürülebilir Kalkınma Amaçları (SDGs) ile uyumludur:
+
+3.6: 2030 yılına kadar trafik kazalarından kaynaklanan ölüm ve yaralanma oranlarını yarıya indirmek.
+9.1: Ekonomik kalkınmayı ve insan refahını desteklemek için güvenilir, sürdürülebilir ve dayanıklı altyapı geliştirmek.
+11.2: 2030 yılına kadar herkes için güvenli, uygun fiyatlı, erişilebilir ve sürdürülebilir ulaşım sistemleri sağlamak ve yol güvenliğini artırmak.
 
 ## Dataset Details
 
 ### Dataset Description
 
-The aim of this dataset is to support the development of an automated pothole detection system leveraging object detection techniques and real-world data. The dataset is created to:
-- Assist authorities in prioritizing road maintenance.
-- Reduce accidents.
-- Improve urban infrastructure management.
+Bu veri kümesinin amacı, gerçek dünya verilerini kullanarak nesne tespiti teknikleriyle otomatik çukur tespiti yapan bir sistemin geliştirilmesini desteklemektir. Veri kümesi aşağıdaki amaçlara hizmet etmektedir:
+
+- Yetkililere yol bakım önceliklerini belirlemede yardımcı olmak.
+- Trafik kazalarını azaltmak.
+- Şehir altyapı yönetimini iyileştirmek.
 
 - **Curated by:** [More Information Needed]
 - **License:** [More Information Needed]
 
 ### Dataset Sources
 
-- **Repository:** [More Information Needed]
+- **Repository:** 
 - **Paper (optional):** [More Information Needed]
 - **Demo (optional):** [More Information Needed]
 
@@ -33,19 +35,20 @@ The aim of this dataset is to support the development of an automated pothole de
 
 ### Direct Use
 
-This dataset is designed for:
-- Training and evaluating object detection models for pothole detection.
-- Benchmarking different object detection architectures.
-- Testing real-world deployment of pothole detection systems.
+Bu veri kümesi şunlar için tasarlanmıştır:
+
+- Çukur tespiti için nesne algılama modellerini eğitmek ve değerlendirmek.
+- Farklı nesne tespiti mimarilerini karşılaştırmak ve kıyaslamak.
+- Gerçek dünya ortamlarında çukur tespiti sistemlerini test etmek.
 
 ## Dataset Structure
 
-- **Data Type:** Custom real-world road imagery dataset collected via web scraping, filtered to exclude synthetic and animated images.
+- **Data Type:**:  Özel olarak oluşturulmuş, gerçek yol görüntülerinden oluşan veri kümesi. Sentetik ve animasyonlu görüntüler hariç tutulmuştur.
 - **Sources:**
   - Flickr API
   - DuckDuckGo API
   - Bing API
-  - Some pre-cleaned Roboflow datasets (for dummy model creation)
+  - Önceden temizlenmiş bazı Roboflow veri kümeleri (dummy model oluşturma amaçlı)
 
 ## Dataset Creation
 
@@ -53,33 +56,34 @@ This dataset is designed for:
 
 #### Data Collection and Processing
 
-- Data was collected from real-world sources using API-based web scraping.
-- Synthetic and animated images were excluded.
-- Dataset was processed to ensure high-quality and diverse pothole images.
-- Additional cleaning and augmentation techniques were applied.
+- Veriler, API tabanlı web kazıma (web scraping) yöntemleriyle gerçek dünya kaynaklarından toplanmıştır.
+- Sentetik ve animasyonlu görüntüler hariç tutulmuştur.
+- Veri kümesi, çukur içeren yüksek kaliteli ve çeşitli görüntüler içerecek şekilde filtrelenmiştir.
+- Ek temizlik ve veri artırma (augmentation) teknikleri uygulanmıştır.
 
 #### Features and the Target
 
-- **Features:** Real-world road images containing potholes.
-- **Target:** Binary classification (pothole or no pothole) or object detection (bounding box around potholes).
+- **Features:**  Çukur içeren gerçek yol görüntüleri.
+- **Target:** 
+  - İkili sınıflandırma (pothole / no pothole)
+  - Nesne tespiti (çukurların etrafında sınır kutuları oluşturma)
 
 ### Annotations
 
 #### Annotation Process
 
-- Manual annotation of pothole locations in images.
-- Bounding boxes and labels assigned for training object detection models.
-- Annotation quality control ensured via multiple passes.
+- Roboflow'dan alınan bir pothole dataset (hazır görüntü kümesinden) model eğitilmiş, API'lerden çekilen ve filtrelerden geçen görüntüler gösterilmiştir.
+- Eğitilen modelde, çukur olmasına rağmen gözükmeyen görüntüler tekrardan el ile etiketlenmiş ardından data augmentation veri seti çoğaltılmıştır.
 
 #### Who are the Annotators?
 
-- [More Information Needed]
+- Yusuf.
 
 ## Bias, Risks, and Limitations
 
-- The dataset may be biased towards urban roads with higher pothole occurrences.
-- Variation in lighting, weather, and road conditions may affect model generalization.
-- Ethical considerations must be taken into account when deploying automated road assessment tools.
+- Veri kümesi, şehir içi yollarına daha fazla odaklandığı için kırsal alanlardaki yolları temsil etmekte eksik kalabilir.
+- Aydınlatma, hava koşulları ve yol yüzeyi farklılıkları modelin genelleme yeteneğini etkileyebilir.
+- Otomatik yol değerlendirme araçlarının kullanımı, etik sorunlar ve karar alma süreçleri açısından dikkatli bir şekilde ele alınmalıdır.
 
 ## Citation (optional)
 
