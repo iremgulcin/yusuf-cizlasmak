@@ -60,9 +60,9 @@ streamlit run app.py
 ya da dockerize edilecek 
 
 ```bash
-DOCKER KODU GELECEK
-
+docker-compose up -d
 ```
+* docker-compose.yml ile aynı dizinde olduğunuza dikkat edin.
 
 ## Training Details
 

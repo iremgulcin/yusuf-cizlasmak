@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  streamlit:
+    image: ycizlasmak/pothole-streamlit:latest
+    ports:
+      - "8501:8501"
+    container_name: my-streamlit-app
+    restart: always
