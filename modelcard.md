@@ -53,13 +53,15 @@ Bu model, gerçek dünya yol görüntülerinde çukur tespiti yapmak için özel
 
 Aşağıdaki kodu kullanarak modeli çalıştırabilirsiniz:
 
-```python
-import torch
-from ultralytics import YOLO
+```bash
+streamlit run app.py
+```
 
-model = YOLO('yolov11-custom.pt')
-results = model.predict('test_image.jpg')
-model.show(results)
+ya da dockerize edilecek 
+
+```bash
+DOCKER KODU GELECEK
+
 ```
 
 ## Training Details
