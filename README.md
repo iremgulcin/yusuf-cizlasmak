@@ -20,9 +20,9 @@ Görüntülerini indirme
 
     Yeni güncelleme: 06/02
 
-    * ModelCard 
+    * ModelCard ✅
 
     * Modeller eğitildi, artık deploy edilmeye hazır gözüküyor. Gradio  ❌  Streamlit ✅  ile arayüz tasarlanıp 
 
 
-    * Ardından Dockerize edilebilir.
+    * Ardından Dockerize edilebilir. ✅
