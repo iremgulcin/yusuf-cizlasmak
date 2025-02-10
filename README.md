@@ -28,7 +28,7 @@ Görüntülerini indirme ✅
     * Ardından Dockerize edilebilir. ✅
 
 
-    ## Uygulama çalıştırmak için:
+    ## Uygulamayı çalıştırmak için:
 
     
 
