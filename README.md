@@ -44,7 +44,7 @@ Görüntülerini indirme ✅
 
     ardından localhost:8501 adresine giderek uygulamayı kullanabilirsiniz.
 
-    ## Uygulamalardan bazı görüntüler:
+    ## Uygulamadan bazı görüntüler:
     ### Örnek 1:
     ![alt text](assets/testing_1_gorsel.jpg)
     
