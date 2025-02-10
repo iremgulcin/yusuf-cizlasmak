@@ -69,4 +69,4 @@ Görüntülerini indirme ✅
     ![alt text](assets/testing_4_result.png)
 
 
-* **Daha fazla bilgi için ilgili kodun Dökümantasyon kısmına bakabilirsiniz**.
+* **Daha fazla bilgi için ilgili kodu çalıştırdıktan sonra Dökümantasyon sayfasına bakabilirsiniz**.
